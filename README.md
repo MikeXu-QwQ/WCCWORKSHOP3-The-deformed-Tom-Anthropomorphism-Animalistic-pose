@@ -1,0 +1,2 @@
+# WCCWORKSHOP3-The-deformed-Tom-Anthropomorphism-Animalistic-pose
+This post is about a data collector, primarily focusing on an AI model's ability to identify whether cartoon cats are traditional animals or anthropomorphic creatures. The data comes from a convnext-224 model initially trained with 100 images of real and fake cats, which identified 311 images of "deformed Tom cats" (Tom in Tom &amp; Jerry).
