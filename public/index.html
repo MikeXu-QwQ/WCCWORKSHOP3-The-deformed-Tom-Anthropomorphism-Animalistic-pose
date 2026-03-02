@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Anthropomorphism Explorer</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
+</head>
+<body style="font-family: Arial; padding:40px;">
+
+<h1>The deformed Tom Anthropomorphism/Animalistic pose</h1>
+
+<div>
+    <button onclick="prevImage()">Previous</button>
+    <button onclick="nextImage()">Next</button>
+</div>
+
+<br>
+
+<img id="displayImage" width="300">
+
+<h3 id="probText"></h3>
+
+<hr>
+
+<canvas id="histogram" width="800" height="400"></canvas>
+
+<script>
+let data = [];
+let currentIndex = 0;
+
+fetch('/data')
+    .then(res => res.json())
+    .then(json => {
+        data = json;
+        showImage(0);
+        drawHistogram();
+    });
+
+function showImage(index) {
+    const item = data[index];
+
+    document.getElementById("displayImage").src =
+        "/images/" + item.image;
+
+    document.getElementById("probText").innerText =
+        "ANI=Animalistic: " + item.ani_prob.toFixed(3) +
+        " | ANT: Anthropomophic" + item.ant_prob.toFixed(3);
+}
+
+function nextImage() {
+    currentIndex = (currentIndex + 1) % data.length;
+    showImage(currentIndex);
+}
+
+function prevImage() {
+    currentIndex = (currentIndex - 1 + data.length) % data.length;
+    showImage(currentIndex);
+}
+
+function drawHistogram() {
+    const bins = new Array(10).fill(0);
+
+    data.forEach(item => {
+        const index = Math.min(9, Math.floor(item.ant_prob * 10));
+        bins[index]++;
+    });
+
+    new Chart(document.getElementById('histogram'), {
+        type: 'bar',
+        data: {
+            labels: [
+                "0-0.1","0.1-0.2","0.2-0.3","0.3-0.4",
+                "0.4-0.5","0.5-0.6","0.6-0.7","0.7-0.8",
+                "0.8-0.9","0.9-1.0"
+            ],
+            datasets: [{
+                label: 'ANT Probability Distribution',
+                data: bins
+            }]
+        }
+    });
+}
+</script>
+
+</body>
+</html>
