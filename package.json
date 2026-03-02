@@ -1,25 +1,12 @@
 {
-  "name": "my-dmlap",
+  "name": "tom-anthropomorphism",
   "version": "1.0.0",
-  "description": "This repo hosts teaching materials for the module Data and Machine Learning for Artistic Practice (DMLAP), and it is addressed to students of the MA/MFA Computational Arts course of Goldsmiths, University of London.",
+  "description": "Anthropomorphism probability visualisation project",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/IriniKlz/DMLAP.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/IriniKlz/DMLAP/issues"
-  },
-  "homepage": "https://github.com/IriniKlz/DMLAP#readme",
   "dependencies": {
-    "express": "^5.2.1"
+    "express": "^4.18.2"
   }
 }
