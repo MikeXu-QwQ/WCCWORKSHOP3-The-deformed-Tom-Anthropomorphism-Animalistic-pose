@@ -1,4 +1,9 @@
 # WCCWORKSHOP3-The-deformed-Tom-Anthropomorphism-Animalistic-pose
+
+###--web can be seen here---https://wccworkshop3-the-deformed-tom.onrender.com/
+
+###--my trained model---
+
 This post is about a data collector, primarily focusing on an AI model's ability to identify whether cartoon cats are traditional animals or anthropomorphic creatures. 
 The data comes from a convnext-224 model initially trained with 100 images of real and fake cats,
 This training process was done by myself(with the help of GPT&optional module DMLAP env)
